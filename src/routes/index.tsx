@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Check, PlayCircle, Users } from "lucide-react";
 import heroImage from "@/assets/english-for-life-hero.jpg";
+import { SubscribeDialog } from "@/components/SubscribeDialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,9 +74,11 @@ function Index() {
               te motiva a hablar desde el primer día. Sin traducciones forzadas, sin complicaciones.
             </p>
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Button variant="cta" size="xl">
-                Suscribirme por $600 MXN/mes
-              </Button>
+              <SubscribeDialog>
+                <Button variant="cta" size="xl">
+                  Suscribirme por $600 MXN/mes
+                </Button>
+              </SubscribeDialog>
               <span className="text-sm text-muted-foreground">Cancela cuando quieras.</span>
             </div>
           </div>
@@ -146,9 +149,11 @@ function Index() {
                 viajes y vida cotidiana. Practicas en un ambiente seguro, sin juicios.
               </p>
               <div className="mt-8">
-                <Button variant="cta" size="lg">
-                  Suscribirme por $600 MXN/mes
-                </Button>
+                <SubscribeDialog>
+                  <Button variant="cta" size="lg">
+                    Suscribirme por $600 MXN/mes
+                  </Button>
+                </SubscribeDialog>
               </div>
             </div>
           </div>
@@ -164,13 +169,15 @@ function Index() {
               confianza.
             </p>
             <div className="mt-8">
-              <Button
-                variant="cta"
-                size="xl"
-                className="bg-cta text-cta-foreground hover:bg-cta/90"
-              >
-                Suscribirme por $600 MXN/mes
-              </Button>
+              <SubscribeDialog>
+                <Button
+                  variant="cta"
+                  size="xl"
+                  className="bg-cta text-cta-foreground hover:bg-cta/90"
+                >
+                  Suscribirme por $600 MXN/mes
+                </Button>
+              </SubscribeDialog>
             </div>
             <p className="mt-4 text-sm opacity-75">
               No se requiere tarjeta para explorar. Pago seguro cuando activemos la pasarela.
