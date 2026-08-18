@@ -31,7 +31,9 @@ export const createApplicationCheckout = createServerFn({ method: "POST" })
     if (!stripeKey || !priceId) throw new Error("Stripe no está configurado en el servidor.");
 
     // 1) INSERT real en public.club_applications -> Supabase genera el UUID
-    const insertRes = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/club_applications`, {
+    // La URL configurada puede venir con o sin /rest/v1 al final: normalizamos.
+    const restBase = supabaseUrl.replace(/\/+$/, "").replace(/\/rest\/v1$/, "");
+    const insertRes = await fetch(`${restBase}/rest/v1/club_applications`, {
       method: "POST",
       headers: {
         apikey: supabaseKey,
